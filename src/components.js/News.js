@@ -20,19 +20,26 @@ export function News(_props) {
 
 
   useEffect(() => {
-    let result = axios.get(
-      `https://newsapi.org/v2/everything?language=en&q=${_props.newsname}&apiKey=${process.env.REACT_APP_apikey}&page=${page}&pageSize=${pagelength}`);
-    result.then((res) => {
-      setDataitem(res.data.articles);
-      console.log(res.data.articles);
-      setTotal(Math.ceil((res.data.totalResults) / pagelength));
-      console.log((res.data.totalResults));
-
-    }).catch((err) => {
-      console.log("catch error")
-    })
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`https://newsapi.org/v2/everything?language=en&q=${encodeURIComponent(_props.newsname)}&apiKey=${process.env.REACT_APP_apikey}&page=${page}&pageSize=${pagelength}`);
+        setDataitem(response.data.articles);
+        setTotal(Math.ceil(response.data.totalResults / pagelength));
+        console.log(response.data.articles);
+        console.log(response.data.totalResults);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        console.error('Error Message:', error.message);
+        console.error('Response:', error.response);
+        // Optionally, handle the error state or display an error message to the user
+      }
+    };
+  
+    fetchData();
+  
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  
 
 
   function nextclick() {
