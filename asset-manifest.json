@@ -1,13 +1,12 @@
 {
   "files": {
-    "main.css": "/lalitocean/newsz-web1/static/css/main.9481e884.css",
+    "main.css": "/lalitocean/newsz-web1/static/css/main.31d6cfe0.css",
     "main.js": "/lalitocean/newsz-web1/static/js/main.9783139b.js",
     "index.html": "/lalitocean/newsz-web1/index.html",
-    "main.9481e884.css.map": "/lalitocean/newsz-web1/static/css/main.9481e884.css.map",
     "main.9783139b.js.map": "/lalitocean/newsz-web1/static/js/main.9783139b.js.map"
   },
   "entrypoints": [
-    "static/css/main.9481e884.css",
+    "static/css/main.31d6cfe0.css",
     "static/js/main.9783139b.js"
   ]
 }
